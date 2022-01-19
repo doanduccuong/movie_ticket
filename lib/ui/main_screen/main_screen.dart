@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/configs/constant.dart';
@@ -97,16 +96,19 @@ class MainScreen extends StatelessWidget {
             margin: EdgeInsets.only(top: 28.w, left: 30.w, bottom: 17.h),
             child: TextBold(title: 'Now Showing', size: 22.sp, height: 1.5.h),
           ),
-          Container(
-            width: 177.6.w,
-            height: 242.52.h,
-            decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(AppImages.imgSpiderman),fit: BoxFit.cover),
-              borderRadius: BorderRadius.circular(10.r)
-            ),
-          )
+          Expanded(child: )
         ],
       ),
     );
   }
 }
+// Container(
+// height: 242.52.h,
+// width: 177.6.w,
+// decoration: BoxDecoration(
+// image: DecorationImage(
+// fit: BoxFit.cover,
+// image: AssetImage(AppImages.imgSpiderman),
+// ),
+// borderRadius: BorderRadius.circular(10.r)),
+// )
