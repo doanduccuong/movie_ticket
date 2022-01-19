@@ -15,29 +15,28 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextNormal(
-                  title: 'Allmovies',
-                  size: 15.sp,
-                  height: 15.h,
-                ),
-                TextNormal(
-                  title: 'Forkids',
-                  size: 15.sp,
-                  height: 15.h,
-                ),
-                TextNormal(
-                  title: 'My Tickets',
-                  size: 15.sp,
-                  height: 15.h,
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextNormal(
+                title: 'Allmovies',
+                size: 15.sp,
+                height: 15.h,
+              ),
+              TextNormal(
+                title: 'Forkids',
+                size: 15.sp,
+                height: 15.h,
+              ),
+              TextNormal(
+                title: 'My Tickets',
+                size: 15.sp,
+                height: 15.h,
+              ),
+            ],
           ),
           Padding(
             padding: EdgeInsets.only(left: 30.w, bottom: 8.h),
