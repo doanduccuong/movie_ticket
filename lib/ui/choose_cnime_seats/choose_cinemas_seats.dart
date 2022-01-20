@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
+import 'package:movie_ticket/ui/select_branch/booking_part.dart';
 class ChooseCinema extends StatelessWidget {
   const ChooseCinema({Key? key}) : super(key: key);
 
@@ -90,7 +91,8 @@ class ChooseCinema extends StatelessWidget {
             padding:  EdgeInsets.only(bottom: 11.h,left: 30.w,right: 315.w),
             child: TextNormal(title: 'Seats',size: 16.sp,height: 1.5.h,fontWeight: FontWeight.w500,),
           ),
-          TextNormal(title: 'Screen',size: 13.sp,height: 1.5.h,fontWeight: FontWeight.w400,)
+          TextNormal(title: 'Screen',size: 13.sp,height: 1.5.h,fontWeight: FontWeight.w400,),
+          BookingPart()
         ],
       ),
     );
