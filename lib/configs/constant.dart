@@ -28,4 +28,5 @@ class Constants {
       SeatRow(numSeat: 8, avaiableSeat: [3],),
     SeatRow(numSeat: 6, avaiableSeat: [1,2,3,5],),
   ];
+  static const apiKey="cce5a481f8d29ff58e07afcd44e7681f";
 }

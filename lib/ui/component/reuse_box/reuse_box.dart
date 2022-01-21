@@ -15,8 +15,8 @@ class ReUseBox extends StatelessWidget {
       this.textSize,
       this.isFlexible = true,
       this.containerWidth,
-      this.borderRadius=10,
-        this.textHeigh,
+      this.borderRadius = 10,
+      this.textHeigh,
       this.image})
       : super(key: key);
   String title;
@@ -39,7 +39,7 @@ class ReUseBox extends StatelessWidget {
               child: TextNormal(
                 title: title,
                 size: textSize ?? 13.sp,
-                height: textHeigh??1.5.h,
+                height: textHeigh ?? 1.5.h,
               ),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.r),
@@ -59,13 +59,17 @@ class ReUseBox extends StatelessWidget {
                 SizedBox(
                   width: 8.w,
                 ),
-                TextBold(title: title, size: textSize??15.sp, height: textHeigh??1.5.h,),
+                TextBold(
+                  title: title,
+                  size: textSize ?? 15.sp,
+                  height: textHeigh ?? 1.5.h,
+                ),
               ],
             ),
             decoration: BoxDecoration(
-                color: AppColors.selectedboxColor,
-                borderRadius: BorderRadius.circular(borderRadius),
-            )
+              color: AppColors.selectedboxColor,
+              borderRadius: BorderRadius.circular(borderRadius),
+            ),
           );
   }
 }

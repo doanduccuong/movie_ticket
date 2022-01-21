@@ -7,12 +7,13 @@ import 'package:movie_ticket/ui/component/reuse_card/reuse_card.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
 
-class SelectBrand extends StatelessWidget {
-  const SelectBrand({Key? key}) : super(key: key);
+class SelectBranch extends StatelessWidget {
+  const SelectBranch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
@@ -40,6 +41,7 @@ class SelectBrand extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 34.h),
             child: TextFormField(
               decoration: InputDecoration(
+                border: InputBorder.none,
                   suffixIcon: Icon(
                     Icons.share,
                     color: AppColors.ePrimaryColor,
