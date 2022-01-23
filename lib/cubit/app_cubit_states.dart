@@ -16,7 +16,7 @@ class LoadingState extends CubitStates{
 
 }
 class LoadedState extends CubitStates{
-  LoadedState(this.httpData);
+  LoadedState({required this.httpData});
    final List<DataModel> httpData;
   @override
   // TODO: implement props

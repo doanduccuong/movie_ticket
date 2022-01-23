@@ -9,11 +9,11 @@ class DataServices {
   String baseUrl = "https://api.themoviedb.org/3/movie/popular?api_key=";
   Future<List<DataModel>> getInfo() async {
     var apiUrl = baseUrl + Constants.apiKey + "&language=en-US";
-    http.Response response = await http.get(Uri.parse(apiUrl));
+    http.Response res = await http.get(Uri.parse(apiUrl));
     try {
-      if (response.statusCode == 200) {
-        print(response.body);
-        List<dynamic> list = json.decode(response.body);
+      if (res.statusCode == 200) {
+         print(res.body);
+        List<dynamic> list = json.decode(res.body);
         return list.map((e) => DataModel.fromJson(e)).toList();
       } else {
         return <DataModel>[];

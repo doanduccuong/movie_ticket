@@ -24,15 +24,12 @@ class _MainScreenState extends State<MainScreen> {
   int _focusIndex=0;
   @override
   Widget build(BuildContext context) {
-    void _onItemFocus(int index) {
-      setState(() {
-        _focusIndex=index;
-      });
-    }
+
     return BlocBuilder<AppCubit, CubitStates>(
       builder: (context, state) {
         if (state is LoadedState) {
           var httpData = state.httpData;
+          print(httpData[1].results![0].backdropPath!);
           return Scaffold(
             backgroundColor: AppColors.backgroundColor,
             body: Column(
@@ -189,7 +186,7 @@ class _MainScreenState extends State<MainScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
                         image: DecorationImage(
-                            image: NetworkImage("https://image.tmdb.org/t/p/w500/c6H7Z4u73ir3cIoCteuhJh7UCAR.jpg"),
+                            image: NetworkImage("https://image.tmdb.org/t/p/w500"+httpData[1].results![0].backdropPath!),
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -229,22 +226,16 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           );
-        } else {
+        }
+        else {
           return Container();
         }
       },
     );
+  }void _onItemFocus(int index) {
+    setState(() {
+      _focusIndex=index;
+    });
   }
-  // Widget _builderList(context, index) {
-  //   return Container(
-  //     height: 201.64.h,
-  //     width: 177.6.w,
-  //     decoration: BoxDecoration(
-  //       borderRadius: BorderRadius.circular(20.r),
-  //       image: DecorationImage(
-  //           image: NetworkImage("https://image.tmdb.org/t/p/original/"+), fit: BoxFit.cover),
-  //     ),
-  //   );
-  // }
 
 }

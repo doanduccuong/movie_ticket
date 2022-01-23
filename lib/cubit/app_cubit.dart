@@ -12,7 +12,8 @@ class AppCubit extends Cubit<CubitStates> {
     try {
       emit(LoadingState());
       httpData = await data.getInfo();
-      emit(LoadedState(httpData));
+      print(httpData.length);
+      emit(LoadedState(httpData: httpData));
     } catch (e) {
       print(e);
     }
