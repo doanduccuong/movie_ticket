@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_ticket/configs/colors.dart';
-import 'package:movie_ticket/configs/constant.dart';
-import 'package:movie_ticket/configs/images.dart';
 import 'package:movie_ticket/cubit/app_cubit.dart';
 import 'package:movie_ticket/cubit/app_cubit_states.dart';
-import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
-import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
+import 'package:movie_ticket/ui/main_screen/all_movies_tab/AllMoviesTab.dart';
+import 'forkid_tab/forkid_tab.dart';
+import 'my_tickets/my_tickets_tab.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_ticket/ui/main_screen/video_section/video_section.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -20,9 +16,17 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
-  int _focusIndex = 0;
+class _MainScreenState extends State<MainScreen>
+    with SingleTickerProviderStateMixin {
+  int selectedTab = 0;
+  late TabController tabbarController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    tabbarController = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, CubitStates>(
@@ -30,154 +34,65 @@ class _MainScreenState extends State<MainScreen> {
         if (state is LoadedState) {
           var httpData = state.httpData;
           return Scaffold(
-            backgroundColor: AppColors.backgroundColor,
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 23.h,
-                  width: 283.w,
-                  margin:
-                      EdgeInsets.only(top: 58.h, left: 35.5.w, right: 35.5.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextNormal(
+              appBar: AppBar(
+                elevation: 0,
+                backgroundColor: AppColors.backgroundColor,
+                bottom: TabBar(
+                  unselectedLabelColor: AppColors.textColor,
+                  indicatorColor: Colors.transparent,
+                  controller: tabbarController,
+                  onTap: (index) {
+                    setState(() {
+                      selectedTab = tabbarController.index;
+                    });
+                  },
+                  tabs: [
+                    Tab(
+                      child: TextNormal(
+                        colors: selectedTab == 0
+                            ? AppColors.selectedboxColor
+                            : null,
                         title: 'Allmovies',
                         size: 15.sp,
                         height: 1.5.h,
                       ),
-                      TextNormal(
-                        title: 'Forkids',
+                    ),
+                    Tab(
+                      child: TextNormal(
+                        colors: selectedTab == 1
+                            ? AppColors.selectedboxColor
+                            : null,
+                        title: 'For Kids',
                         size: 15.sp,
                         height: 1.5.h,
                       ),
-                      TextNormal(
-                        title: 'My Tickets',
+                    ),
+                    Tab(
+                      child: TextNormal(
+                        colors: selectedTab == 2
+                            ? AppColors.selectedboxColor
+                            : null,
+                        title: 'Your Tickets',
                         size: 15.sp,
                         height: 1.5.h,
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 30.w, bottom: 8.h, top: 23.h),
-                  child: TextBold(
-                      title: 'Coming Soon', size: 22.sp, height: 1.5.h),
-                ),
-                //video section
-                VideoSection(),
-                Container(
-                  margin: EdgeInsets.only(left: 30.w, top: 25.h),
-                  height: 22.h,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    itemCount: Constants.texts.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = index;
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  child: TextNormal(
-                                    title: Constants.texts[index],
-                                    size: 13.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  margin: EdgeInsets.only(right: 17.w),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 5.w),
-                                  height: 22.h,
-                                  decoration: BoxDecoration(
-                                    color: _selectedIndex == index
-                                        ? AppColors.selectedboxColor
-                                        : AppColors.unselectedboxColor,
-                                    borderRadius: BorderRadius.circular(5.r),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ));
-                    },
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 28.w, left: 30.w, bottom: 17.h),
-                  child: TextBold(
-                      title: 'Now Showing', size: 22.sp, height: 1.5.h),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 18.48),
-                  height: 242.52.h,
-                  width: double.infinity,
-                  child: ScrollSnapList(
-                    shrinkWrap: true,
-                    dynamicItemSize: true,
-                    reverse: true,
-                    itemBuilder: (context, index) => Container(
-                      height: 201.64.h,
-                      width: 177.6.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),
-                        image: DecorationImage(
-                            image: AssetImage(Constants.images[index]),
-                            fit: BoxFit.cover),
-                      ),
                     ),
-                    itemCount: 3,
-                    onItemFocus: (int index) {
-                      _onItemFocus(index);
-                    },
-                    itemSize: 177.6.w,
-                  ),
-                ),
-                Center(
-                  child: TextNormal(
-                    title: 'Spiderman: No Way Home',
-                    fontWeight: FontWeight.w500,
-                    height: 1.5.h,
-                    size: 16.sp,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ReUseBox(
-                      title: '13+',
-                    ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    ReUseBox(title: 'Action'),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    ReUseBox(
-                      title: 'IMAX',
-                    )
                   ],
-                )
-              ],
-            ),
-          );
+                ),
+              ),
+              backgroundColor: AppColors.backgroundColor,
+              body: TabBarView(
+                controller: tabbarController,
+                children: [
+                  AllMoviesTab(),
+                  ForKidTab(),
+                  MyTicketTab(),
+                ],
+              ));
         } else {
           return Container();
         }
       },
     );
-  }
-
-  void _onItemFocus(int index) {
-    setState(() {
-      _focusIndex=index;
-    });
   }
 }

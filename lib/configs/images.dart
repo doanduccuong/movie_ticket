@@ -8,4 +8,6 @@ class AppImages{
   static const String imgMaskGroup="assets/images/img_mask_group.png";
   static const String imgMaskGroup1="assets/images/img_mask_group1.png";
   static const String imgMaskGroup2="assets/images/img_mask_group2.png";
+  static const String imgDetailEternal="assets/images/img_detail_eternal.png";
+  static const String imgDetailMaxtrix="assets/images/img_detail_matrix.jpg";
 }
