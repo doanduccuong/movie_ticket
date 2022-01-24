@@ -10,6 +10,7 @@ import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_ticket/ui/main_screen/video_section/video_section.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class MainScreen extends StatefulWidget {
@@ -21,15 +22,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  int _focusIndex=0;
+  int _focusIndex = 0;
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<AppCubit, CubitStates>(
       builder: (context, state) {
         if (state is LoadedState) {
           var httpData = state.httpData;
-          print(httpData[1].results![0].backdropPath!);
           return Scaffold(
             backgroundColor: AppColors.backgroundColor,
             body: Column(
@@ -67,65 +66,8 @@ class _MainScreenState extends State<MainScreen> {
                   child: TextBold(
                       title: 'Coming Soon', size: 22.sp, height: 1.5.h),
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: 30.w,
-                  ),
-                  padding: EdgeInsets.only(left: 15.w, right: 16.w, top: 13.h),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextNormal(
-                            title: 'The Batman',
-                            size: 15.sp,
-                            height: 1.5.h,
-                          ),
-                          Icon(
-                            Icons.share,
-                            size: 20.sp,
-                            color: AppColors.textColor,
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 51.h,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 58.h),
-                        height: 34.h,
-                        width: 34.h,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.selectedboxColor,
-                        ),
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: AppColors.textColor,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Image.asset(AppImages.imgTicket),
-                          TextNormal(
-                            title: 'Ticket Available',
-                            size: 9.sp,
-                            height: 1.5.h,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  width: 320.w,
-                  height: 220.h,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      image: DecorationImage(
-                          image: AssetImage(AppImages.imgBatman),
-                          fit: BoxFit.cover)),
-                ),
+                //video section
+                VideoSection(),
                 Container(
                   margin: EdgeInsets.only(left: 30.w, top: 25.h),
                   height: 22.h,
@@ -186,13 +128,13 @@ class _MainScreenState extends State<MainScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.r),
                         image: DecorationImage(
-                            image: NetworkImage("https://image.tmdb.org/t/p/w500"+httpData[1].results![0].backdropPath!),
+                            image: AssetImage(Constants.images[index]),
                             fit: BoxFit.cover),
                       ),
                     ),
                     itemCount: 3,
-                    onItemFocus: (index){
-                      return _onItemFocus(index);
+                    onItemFocus: (int index) {
+                      _onItemFocus(index);
                     },
                     itemSize: 177.6.w,
                   ),
@@ -226,16 +168,16 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           );
-        }
-        else {
+        } else {
           return Container();
         }
       },
     );
-  }void _onItemFocus(int index) {
+  }
+
+  void _onItemFocus(int index) {
     setState(() {
       _focusIndex=index;
     });
   }
-
 }
