@@ -57,21 +57,18 @@ class DetailScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 114.w),
-                      child: TextBold(
-                          title: 'Spider-Man: No Way Home',
-                          size: 18.sp,
-                          height: 1.5.h),
-                    )
+                    TextBold(
+                      title: data[index].title,
+                      size: 18.sp,
+                      height: 1.5.h,
+                    ),
                   ],
                 ),
                 height: 547.h,
                 width: 390.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(data[1].image[index]),
-                      fit: BoxFit.cover),
+                      image: AssetImage(data[index].image), fit: BoxFit.cover),
                 ),
               ),
               Container(
@@ -79,7 +76,7 @@ class DetailScreen extends StatelessWidget {
                 width: 329.w,
                 height: 104.h,
                 child: TextNormal(
-                  title: Constants.filmDescription,
+                  title: data[index].description,
                   size: 11.sp,
                   height: 1.5.h,
                   fontWeight: FontWeight.w300,

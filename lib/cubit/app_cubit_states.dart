@@ -29,5 +29,5 @@ class DetailState extends CubitStates{
    DetailState({required this.localData,required this.chooseIndex});
   @override
   // TODO: implement props
-  List<Object?> get props => [localData];
+  List<Object?> get props => [];
 }
