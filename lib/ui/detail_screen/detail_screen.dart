@@ -65,7 +65,9 @@ class DetailScreen extends StatelessWidget {
                 width: 390.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage("https://image.tmdb.org/t/p/w500"+httpDetailState.detailData.posterPath!), fit: BoxFit.cover),
+                      image: NetworkImage("https://image.tmdb.org/t/p/w500" +
+                          httpDetailState.detailData.posterPath!),
+                      fit: BoxFit.cover),
                 ),
               ),
               Container(
@@ -158,6 +160,6 @@ class DetailScreen extends StatelessWidget {
       } else {
         return Container();
       }
-    });
+    },);
   }
 }
