@@ -1,7 +1,7 @@
 import 'package:movie_ticket/configs/images.dart';
 import 'package:movie_ticket/model/film_detail_model.dart';
 import 'package:movie_ticket/model/fiml_review.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seatRow.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/seat_row.dart';
 
 class Constants {
   static const List<String> texts = [

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_ticket/configs/colors.dart';
@@ -17,8 +16,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, CubitStates>(builder: (context, state) {
       if (state is DetailState) {
-        var data = state.localData;
-        var index = state.chooseIndex;
+        DetailState httpDetailState = state as DetailState;
         return Scaffold(
           resizeToAvoidBottomInset: true,
           backgroundColor: AppColors.backgroundColor,
@@ -57,7 +55,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                     TextBold(
-                      title: data[index].title,
+                      title: httpDetailState.detailData.originalTitle!,
                       size: 18.sp,
                       height: 1.5.h,
                     ),
@@ -67,7 +65,7 @@ class DetailScreen extends StatelessWidget {
                 width: 390.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(data[index].image), fit: BoxFit.cover),
+                      image: NetworkImage("https://image.tmdb.org/t/p/w500"+httpDetailState.detailData.posterPath!), fit: BoxFit.cover),
                 ),
               ),
               Container(
@@ -75,7 +73,7 @@ class DetailScreen extends StatelessWidget {
                 width: 329.w,
                 height: 104.h,
                 child: TextNormal(
-                  title: data[index].description,
+                  title: httpDetailState.detailData.overview!,
                   size: 11.sp,
                   height: 1.5.h,
                   fontWeight: FontWeight.w300,

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/configs/constant.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seatRow.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/availableTicket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/reservedTicket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/selectedTicket.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/seat_row.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/widget/available_ticket.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/widget/reserved_ticket.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/widget/selected_ticket.dart';
 import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seaColumn.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/seats_column.dart';
 
 class ChooseCinema extends StatelessWidget {
   const ChooseCinema({Key? key}) : super(key: key);

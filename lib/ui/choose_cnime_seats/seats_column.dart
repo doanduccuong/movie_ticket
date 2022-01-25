@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_ticket/configs/constant.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seatRow.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/seat_row.dart';
 
 Widget seatColumn() {
   return Column(

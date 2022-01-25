@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_ticket/configs/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/availableTicket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/reservedTicket.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/widget/available_ticket.dart';
+import 'package:movie_ticket/ui/choose_cnime_seats/widget/reserved_ticket.dart';
 
 class SeatRow extends StatelessWidget {
   SeatRow({Key? key, required this.numSeat, required this.avaiableSeat})

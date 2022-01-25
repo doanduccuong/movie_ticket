@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:movie_ticket/configs/constant.dart';
 import 'package:movie_ticket/cubit/app_cubit_states.dart';
+import 'package:movie_ticket/model/data_model.dart';
 import 'package:movie_ticket/service/data_service.dart';
 
 class AppCubit extends Cubit<CubitStates> {
@@ -20,9 +21,11 @@ class AppCubit extends Cubit<CubitStates> {
     }
   }
 
-  getDetailData(int index) {
+  getDetailData(DataModel data) {
     try {
-      emit(DetailState(localData: Constants.filmDescribe, chooseIndex: index));
-    } catch (e) {}
+      emit(DetailState(detailData: data));
+    } catch (e) {
+      print(e);
+    }
   }
 }

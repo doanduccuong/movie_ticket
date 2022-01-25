@@ -29,66 +29,57 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppCubit, CubitStates>(
-      builder: (context, state) {
-        if (state is LoadedState) {
-          var httpData = state.httpData;
-          return Scaffold(
-              appBar: AppBar(
-                elevation: 0,
-                backgroundColor: AppColors.backgroundColor,
-                bottom: TabBar(
-                  unselectedLabelColor: AppColors.textColor,
-                  indicatorColor: Colors.transparent,
-                  controller: tabbarController,
-
-                  tabs: [
-                    Tab(
-                      child: TextNormal(
-                        colors: tabbarController.index==0
-                            ? AppColors.selectedboxColor
-                            : AppColors.textColor,
-                        title: 'Allmovies',
-                        size: 15.sp,
-                        height: 1.5.h,
-                      ),
-                    ),
-                    Tab(
-                      child: TextNormal(
-                        colors: tabbarController.index == 1
-                            ? AppColors.selectedboxColor
-                            : AppColors.textColor,
-                        title: 'For Kids',
-                        size: 15.sp,
-                        height: 1.5.h,
-                      ),
-                    ),
-                    Tab(
-                      child: TextNormal(
-                        colors: tabbarController.index == 2
-                            ? AppColors.selectedboxColor
-                            : AppColors.textColor,
-                        title: 'Your Tickets',
-                        size: 15.sp,
-                        height: 1.5.h,
-                      ),
-                    ),
-                  ],
-                ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColors.backgroundColor,
+        bottom: TabBar(
+          unselectedLabelColor: AppColors.textColor,
+          indicatorColor: Colors.transparent,
+          controller: tabbarController,
+          tabs: [
+            Tab(
+              child: TextNormal(
+                colors: tabbarController.index == 0
+                    ? AppColors.selectedboxColor
+                    : AppColors.textColor,
+                title: 'Allmovies',
+                size: 15.sp,
+                height: 1.5.h,
               ),
-              backgroundColor: AppColors.backgroundColor,
-              body: TabBarView(
-                controller: tabbarController,
-                children:  [
-                  AllMoviesTab(),
-                  ForKidTab(),
-                  MyTicketTab(),
-                ],
-              ));
-        } else {
-          return Container();
-        }
-      },
+            ),
+            Tab(
+              child: TextNormal(
+                colors: tabbarController.index == 1
+                    ? AppColors.selectedboxColor
+                    : AppColors.textColor,
+                title: 'For Kids',
+                size: 15.sp,
+                height: 1.5.h,
+              ),
+            ),
+            Tab(
+              child: TextNormal(
+                colors: tabbarController.index == 2
+                    ? AppColors.selectedboxColor
+                    : AppColors.textColor,
+                title: 'Your Tickets',
+                size: 15.sp,
+                height: 1.5.h,
+              ),
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: AppColors.backgroundColor,
+      body: TabBarView(
+        controller: tabbarController,
+        children: [
+          AllMoviesTab(),
+          ForKidTab(),
+          MyTicketTab(),
+        ],
+      ),
     );
   }
 }
