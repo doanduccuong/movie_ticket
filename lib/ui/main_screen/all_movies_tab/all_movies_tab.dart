@@ -89,12 +89,12 @@ class _AllMoviesTabState extends State<AllMoviesTab> {
             itemBuilder: (context, index) => InkWell(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              onTap: () {
+              onTap: _focusIndex==index?() {
                 setState(() {
                   chooseIndex=index;
                 });
                 BlocProvider.of<AppCubit>(context).getDetailData(chooseIndex);
-              },
+              }:null,
               child: Container(
                 height: 201.64.h,
                 width: 177.6.w,

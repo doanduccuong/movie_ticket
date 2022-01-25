@@ -4,8 +4,8 @@ import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/cubit/app_cubit.dart';
 import 'package:movie_ticket/cubit/app_cubit_states.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
-import 'package:movie_ticket/ui/main_screen/all_movies_tab/AllMoviesTab.dart';
-import 'forkid_tab/forkid_tab.dart';
+import 'package:movie_ticket/ui/main_screen/all_movies_tab/all_movies_tab.dart';
+import 'for_kid_tab/forkid_tab.dart';
 import 'my_tickets/my_tickets_tab.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -41,17 +41,13 @@ class _MainScreenState extends State<MainScreen>
                   unselectedLabelColor: AppColors.textColor,
                   indicatorColor: Colors.transparent,
                   controller: tabbarController,
-                  onTap: (index) {
-                    setState(() {
-                      selectedTab = tabbarController.index;
-                    });
-                  },
+
                   tabs: [
                     Tab(
                       child: TextNormal(
-                        colors: selectedTab == 0
+                        colors: tabbarController.index==0
                             ? AppColors.selectedboxColor
-                            : null,
+                            : AppColors.textColor,
                         title: 'Allmovies',
                         size: 15.sp,
                         height: 1.5.h,
@@ -59,9 +55,9 @@ class _MainScreenState extends State<MainScreen>
                     ),
                     Tab(
                       child: TextNormal(
-                        colors: selectedTab == 1
+                        colors: tabbarController.index == 1
                             ? AppColors.selectedboxColor
-                            : null,
+                            : AppColors.textColor,
                         title: 'For Kids',
                         size: 15.sp,
                         height: 1.5.h,
@@ -69,9 +65,9 @@ class _MainScreenState extends State<MainScreen>
                     ),
                     Tab(
                       child: TextNormal(
-                        colors: selectedTab == 2
+                        colors: tabbarController.index == 2
                             ? AppColors.selectedboxColor
-                            : null,
+                            : AppColors.textColor,
                         title: 'Your Tickets',
                         size: 15.sp,
                         height: 1.5.h,
@@ -83,7 +79,7 @@ class _MainScreenState extends State<MainScreen>
               backgroundColor: AppColors.backgroundColor,
               body: TabBarView(
                 controller: tabbarController,
-                children: [
+                children:  [
                   AllMoviesTab(),
                   ForKidTab(),
                   MyTicketTab(),

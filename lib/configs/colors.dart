@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 class AppColors{
   static const Color backgroundColor=Color(0xFF1E1F27);
   static const Color selectedboxColor=Color(0xFFD98639);
