@@ -51,7 +51,7 @@ class _VideoSectionState extends State<VideoSection> {
 
     return YoutubePlayerBuilder(
         player: YoutubePlayer(
-          aspectRatio: 330/220,
+
           showVideoProgressIndicator: true,
           controller: _controller,
         ),
@@ -122,7 +122,7 @@ class _VideoSectionState extends State<VideoSection> {
               ),
             ),
             width: 320.w,
-            height: 220.h,
+            height: 200.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               image: const DecorationImage(

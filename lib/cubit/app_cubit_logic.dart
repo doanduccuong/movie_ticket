@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_ticket/cubit/app_cubit.dart';
 import 'package:movie_ticket/cubit/app_cubit_states.dart';
 import 'package:movie_ticket/ui/detail_screen/detail_screen.dart';
+
 import 'package:movie_ticket/ui/main_screen/main_screen.dart';
 
 

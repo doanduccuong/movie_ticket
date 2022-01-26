@@ -16,67 +16,57 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   int selectedTab = 0;
-  late TabController tabbarController;
+  late TabController tabBarController;
   @override
   void initState() {
     // TODO: implement initState
-    tabbarController = TabController(length: 3, vsync: this);
+    tabBarController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColors.backgroundColor,
-        bottom: TabBar(
-          unselectedLabelColor: AppColors.textColor,
-          indicatorColor: Colors.transparent,
-          controller: tabbarController,
-          tabs: [
-            Tab(
-              child: TextNormal(
-                colors: tabbarController.index == 0
-                    ? AppColors.selectedBoxColor
-                    : AppColors.textColor,
-                title: 'Allmovies',
-                size: 15.sp,
-                height: 1.5.h,
-              ),
-            ),
-            Tab(
-              child: TextNormal(
-                colors: tabbarController.index == 1
-                    ? AppColors.selectedBoxColor
-                    : AppColors.textColor,
-                title: 'For Kids',
-                size: 15.sp,
-                height: 1.5.h,
-              ),
-            ),
-            Tab(
-              child: TextNormal(
-                colors: tabbarController.index == 2
-                    ? AppColors.selectedBoxColor
-                    : AppColors.textColor,
-                title: 'Your Tickets',
-                size: 15.sp,
-                height: 1.5.h,
-              ),
-            ),
-          ],
-        ),
-      ),
       backgroundColor: AppColors.backgroundColor,
-      body: TabBarView(
-        controller: tabbarController,
-        children: const [
-          AllMoviesTab(),
-          ForKidTab(),
-          MyTicketTab(),
-        ],
-      ),
-    );
+        body: Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 58.h,left: 58.5.w),
+          height: 23.h,
+          width: 600.w,
+          child: TabBar(
+            labelColor: AppColors.selectedBoxColor,
+            unselectedLabelColor: AppColors.textColor,
+            indicatorColor: Colors.transparent,
+            isScrollable: true,
+            unselectedLabelStyle: TextStyle(height: 1.5.h,fontSize: 15.sp,fontFamily: 'Poppins'),
+            controller: tabBarController,
+            tabs: const [
+              Tab(
+                text: 'All Movie',
+              ),
+              Tab(
+                
+                text: 'For Kid',
+              ),
+              Tab(
+                  text: 'Your Ticket',
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 23.h,),
+        Expanded(
+          child: TabBarView(
+            controller: tabBarController,
+            children: const [
+              AllMoviesTab(),
+              ForKidTab(),
+              MyTicketTab(),
+            ],
+          ),
+        ),
+      ],
+    ));
   }
 }

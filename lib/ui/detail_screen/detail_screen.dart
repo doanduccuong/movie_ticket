@@ -19,7 +19,7 @@ class DetailScreen extends StatelessWidget {
         if (state is DetailState) {
           DetailState httpDetailState = state;
           return Scaffold(
-            resizeToAvoidBottomInset: true,
+            resizeToAvoidBottomInset: false,
             backgroundColor: AppColors.backgroundColor,
             body: Column(
               children: [
@@ -42,16 +42,16 @@ class DetailScreen extends StatelessWidget {
                       ),
                       Container(
                         height: 22.h,
-                        width: double.infinity,
+                        width: 214.w,
                         margin: EdgeInsets.only(
-                            left: 30.w, right: 141.w, bottom: 28.h),
+                            left: 30.w, bottom: 28.h, right: 141.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ReUseBox(title: '13+'),
                             ReUseBox(title: 'Action'),
                             ReUseBox(title: 'IMAX'),
-                            ReUseBox(title: '2 trailer'),
+                            ReUseBox(title: '2Trailers'),
                           ],
                         ),
                       ),
@@ -109,7 +109,9 @@ class DetailScreen extends StatelessWidget {
                         width: 253.w,
                         child: TextFormField(
                           decoration: InputDecoration(
-                            focusedBorder: InputBorder.none,
+                            enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: AppColors.underLineBorderColor)),
                             hintText: 'Add a comment',
                             hintStyle: TextStyle(
                                 fontSize: 11.sp,

@@ -83,6 +83,7 @@ class _ActionTabState extends State<ActionTab> {
                   size: 16.sp,
                 ),
               ),
+              SizedBox(height: 8.h,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

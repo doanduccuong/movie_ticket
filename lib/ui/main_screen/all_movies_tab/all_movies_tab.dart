@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/configs/constant.dart';
-import 'package:movie_ticket/ui/component/build_tab/build_tab.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/main_screen/all_movies_tab/action_tab/action_tab.dart';
 import 'package:movie_ticket/ui/main_screen/all_movies_tab/comedy_tab/comedy_tab.dart';
@@ -34,7 +34,7 @@ class _AllMoviesTabState extends State<AllMoviesTab>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(left: 30.w, right: 209.w),
+          margin: EdgeInsets.only(left: 30.w, right: 209.w,bottom: 8.h),
           child: TextBold(title: 'Coming Soon', size: 22.sp, height: 1.5.h),
         ),
         //video section
@@ -44,22 +44,24 @@ class _AllMoviesTabState extends State<AllMoviesTab>
           height: 25.h,
         ),
         //category tab
-        SizedBox(
+        Container(
+          margin: EdgeInsets.only(left: 30.w),
           height: 22.h,
           width: 364.w,
           child: TabBar(
-            indicatorSize: TabBarIndicatorSize.tab,
             isScrollable: true,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: Colors.transparent,
             indicator: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(20),
+              color: AppColors.selectedBoxColor,
+              borderRadius: BorderRadius.circular(5.r),
             ),
             controller: categoryTabController,
             tabs: List.generate(
               5,
               (index) {
-                return BuildTab(
-                  title: Constants.texts[index],
+                return Tab(
+                  child: Text(Constants.texts[index]),
                 );
               },
             ),

@@ -13,4 +13,5 @@ class AppColors{
   static const Color hintTextColor=Color(0xFF8F8F8F);
   static const Color iconBackGroundColor=Color(0xFFC4C4C4);
   static const Color cardBackGroundColor=Color(0xFF4E4E51);
+  static const Color underLineBorderColor=Color(0xFF646464);
 }
