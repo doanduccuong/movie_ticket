@@ -9,6 +9,8 @@ import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
 
+import 'package:movie_ticket/ui/detail_screen/widget/expandable_text.dart';
+
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
@@ -27,8 +29,20 @@ class DetailScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 350.h,
+                        height: 20.h,
                       ),
+                      InkWell(
+                        onTap: (){
+                         BlocProvider.of<AppCubit>(context).goMainScreen();
+                        },
+                          child: const Align(
+                        alignment: Alignment.topLeft,
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: AppColors.textColor,
+                        ),
+                      )),
+                      SizedBox(height: 300.h),
                       ReUseBox(
                         isFlexible: false,
                         title: 'Get Tickets',
@@ -71,16 +85,9 @@ class DetailScreen extends StatelessWidget {
                         fit: BoxFit.cover),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 31.h),
-                  width: 329.w,
-                  height: 104.h,
-                  child: TextNormal(
-                    title: httpDetailState.detailData.overview!,
-                    size: 11.sp,
-                    height: 1.5.h,
-                    fontWeight: FontWeight.w300,
-                  ),
+                //Expand text
+                ExpandableText(
+                  overViewTex: httpDetailState.detailData.overview.toString(),
                 ),
                 Container(
                   margin:
@@ -124,7 +131,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 30.w),
+                  margin: EdgeInsets.only(left: 30.w, bottom: 22.h),
                   child: Row(
                     children: [
                       CircleAvatar(
