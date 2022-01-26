@@ -115,8 +115,9 @@ class DetailScreen extends StatelessWidget {
                         height: 17.h,
                         width: 253.w,
                         child: TextFormField(
-                          autofocus: true,
+                          style: TextStyle(color: AppColors.textColor),
                           decoration: InputDecoration(
+
                             enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: AppColors.underLineBorderColor),
