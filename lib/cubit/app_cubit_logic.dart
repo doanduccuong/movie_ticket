@@ -18,6 +18,7 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: BlocBuilder<AppCubit, CubitStates>(
         builder: (context, state) {
           if (state is LoadingState) {

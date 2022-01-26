@@ -27,46 +27,50 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.backgroundColor,
-        body: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 58.h,left: 58.5.w),
-          height: 23.h,
-          width: 600.w,
-          child: TabBar(
-            labelColor: AppColors.selectedBoxColor,
-            unselectedLabelColor: AppColors.textColor,
-            indicatorColor: Colors.transparent,
-            isScrollable: true,
-            unselectedLabelStyle: TextStyle(height: 1.5.h,fontSize: 15.sp,fontFamily: 'Poppins'),
-            controller: tabBarController,
-            tabs: const [
-              Tab(
-                text: 'All Movie',
-              ),
-              Tab(
-                
-                text: 'For Kid',
-              ),
-              Tab(
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 58.h, left: 58.5.w),
+            height: 23.h,
+            width: 600.w,
+            child: TabBar(
+              labelColor: AppColors.selectedBoxColor,
+              unselectedLabelColor: AppColors.textColor,
+              indicatorColor: Colors.transparent,
+              isScrollable: true,
+              unselectedLabelStyle: TextStyle(
+                  height: 1.5.h, fontSize: 15.sp, fontFamily: 'Poppins'),
+              controller: tabBarController,
+              tabs: const [
+                Tab(
+                  text: 'All Movie',
+                ),
+                Tab(
+                  text: 'For Kid',
+                ),
+                Tab(
                   text: 'Your Ticket',
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-        ),
-        SizedBox(height: 23.h,),
-        Expanded(
-          child: TabBarView(
-            controller: tabBarController,
-            children: const [
-              AllMoviesTab(),
-              ForKidTab(),
-              MyTicketTab(),
-            ],
+          SizedBox(
+            height: 23.h,
           ),
-        ),
-      ],
-    ));
+          Expanded(
+            child: TabBarView(
+              controller: tabBarController,
+              children: const [
+                AllMoviesTab(),
+                ForKidTab(),
+                MyTicketTab(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -32,16 +32,16 @@ class DetailScreen extends StatelessWidget {
                         height: 20.h,
                       ),
                       InkWell(
-                        onTap: (){
-                         BlocProvider.of<AppCubit>(context).goMainScreen();
-                        },
+                          onTap: () {
+                            BlocProvider.of<AppCubit>(context).goMainScreen();
+                          },
                           child: const Align(
-                        alignment: Alignment.topLeft,
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: AppColors.textColor,
-                        ),
-                      )),
+                            alignment: Alignment.topLeft,
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: AppColors.textColor,
+                            ),
+                          )),
                       SizedBox(height: 300.h),
                       ReUseBox(
                         isFlexible: false,
@@ -115,10 +115,12 @@ class DetailScreen extends StatelessWidget {
                         height: 17.h,
                         width: 253.w,
                         child: TextFormField(
+                          autofocus: true,
                           decoration: InputDecoration(
                             enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: AppColors.underLineBorderColor)),
+                              borderSide: BorderSide(
+                                  color: AppColors.underLineBorderColor),
+                            ),
                             hintText: 'Add a comment',
                             hintStyle: TextStyle(
                                 fontSize: 11.sp,
