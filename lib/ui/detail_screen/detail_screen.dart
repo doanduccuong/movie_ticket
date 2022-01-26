@@ -8,9 +8,7 @@ import 'package:movie_ticket/cubit/app_cubit_states.dart';
 import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
-
 import 'package:movie_ticket/ui/detail_screen/widget/expandable_text.dart';
-
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
@@ -115,9 +113,8 @@ class DetailScreen extends StatelessWidget {
                         height: 17.h,
                         width: 253.w,
                         child: TextFormField(
-                          style: TextStyle(color: AppColors.textColor),
+                          style: const TextStyle(color: AppColors.textColor),
                           decoration: InputDecoration(
-
                             enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: AppColors.underLineBorderColor),
