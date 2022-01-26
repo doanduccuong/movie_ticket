@@ -30,7 +30,7 @@ class TextNormal extends StatelessWidget {
         fontStyle: FontStyle.normal,
         fontFamily: 'Poppins',
         fontSize: size ?? 17.sp,
-        height: height ?? 1.3.h,
+        height: height ?? 1.5.h,
       ),
     );
   }

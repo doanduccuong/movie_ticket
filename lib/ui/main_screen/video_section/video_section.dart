@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_ticket/configs/colors.dart';
 import 'package:movie_ticket/configs/images.dart';
@@ -19,7 +18,7 @@ class _VideoSectionState extends State<VideoSection> {
   String url = 'https://www.youtube.com/watch?v=u34gHaRiBIU&t=88s';
   void runYoutubePlayer() {
     _controller = YoutubePlayerController(
-        flags: YoutubePlayerFlags(
+        flags: const YoutubePlayerFlags(
           autoPlay: true,
           isLive: false,
         ),
@@ -86,9 +85,9 @@ class _VideoSectionState extends State<VideoSection> {
                   margin: EdgeInsets.only(bottom: 58.h),
                   height: 34.h,
                   width: 34.h,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: AppColors.selectedboxColor,
+                    color: AppColors.selectedBoxColor,
                   ),
                   child: InkWell(
                     onTap: () {
@@ -96,7 +95,7 @@ class _VideoSectionState extends State<VideoSection> {
                         isPlay = true;
                       });
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.play_arrow,
                       color: AppColors.textColor,
                     ),
@@ -116,7 +115,7 @@ class _VideoSectionState extends State<VideoSection> {
               ],
             ):ClipRRect(
               borderRadius: BorderRadius.circular(10.r),
-              child: Container(
+              child: SizedBox(
                 width: 320.w,
                 height: 220.h,
                 child: player,
@@ -126,7 +125,7 @@ class _VideoSectionState extends State<VideoSection> {
             height: 220.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage(AppImages.imgBatman), fit: BoxFit.cover),
             ),
           );

@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:movie_ticket/configs/constant.dart';
 import 'package:movie_ticket/cubit/app_cubit_states.dart';
 import 'package:movie_ticket/model/data_model.dart';
 import 'package:movie_ticket/service/data_service.dart';

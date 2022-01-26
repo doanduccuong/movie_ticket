@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_ticket/configs/colors.dart';
-import 'package:movie_ticket/configs/constant.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seat_row.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/available_ticket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/reserved_ticket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/selected_ticket.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/seats_column.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/widget/available_ticket.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/widget/reserved_ticket.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/widget/selected_ticket.dart';
+
 import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/seats_column.dart';
 
 class ChooseCinema extends StatelessWidget {
   const ChooseCinema({Key? key}) : super(key: key);
@@ -146,40 +145,70 @@ class ChooseCinema extends StatelessWidget {
             height: 1.5.h,
             fontWeight: FontWeight.w400,
           ),
-          SizedBox(height: 19.h,),
+          SizedBox(
+            height: 19.h,
+          ),
           seatColumn(),
           Container(
-            margin: EdgeInsets.only(top: 27.5.h,left: 42.5.w),
+            margin: EdgeInsets.only(top: 27.5.h, left: 42.5.w),
             child: Row(
               children: [
                 AvailableTicket(),
-                TextNormal(title: 'Available',size: 13.sp,height: 1.5.h,),
-                SizedBox(width: 25.w,),
+                TextNormal(
+                  title: 'Available',
+                  size: 13.sp,
+                  height: 1.5.h,
+                ),
+                SizedBox(
+                  width: 25.w,
+                ),
                 ReservedTicket(),
-                TextNormal(title: 'Reserved',size: 13.sp,height: 1.5.h,),
-                SizedBox(width: 25.w,),
+                TextNormal(
+                  title: 'Reserved',
+                  size: 13.sp,
+                  height: 1.5.h,
+                ),
+                SizedBox(
+                  width: 25.w,
+                ),
                 SelectedTicket(),
-                TextNormal(title: 'Selected',size: 13.sp,height: 1.5.h,),
+                TextNormal(
+                  title: 'Selected',
+                  size: 13.sp,
+                  height: 1.5.h,
+                ),
               ],
             ),
           ),
-         Container(
-           margin: EdgeInsets.only(left: 30.w,right: 40.w,top: 34.h),
-           child: Row(
-             children: [
-               Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   TextNormal(title: '6 Seats',size: 13.sp,height: 1.5.h,),
-                   TextBold(title: 'PHP 1494', size: 20.sp, height: 1.5.h)
-                 ],
-               ),
-               SizedBox(width: 60.w,),
-               ReUseBox(isFlexible:false,isImage:false,title: 'Buy Now',backgroundColor: AppColors.selectedboxColor,containerWidth: 169.w,containerHeigh: 57.h,)
-             ],
-           ),
-         )
-
+          Container(
+            margin: EdgeInsets.only(left: 30.w, right: 40.w, top: 34.h),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextNormal(
+                      title: '6 Seats',
+                      size: 13.sp,
+                      height: 1.5.h,
+                    ),
+                    TextBold(title: 'PHP 1494', size: 20.sp, height: 1.5.h)
+                  ],
+                ),
+                SizedBox(
+                  width: 60.w,
+                ),
+                ReUseBox(
+                  isFlexible: false,
+                  isImage: false,
+                  title: 'Buy Now',
+                  backgroundColor: AppColors.selectedBoxColor,
+                  containerWidth: 169.w,
+                  containerHeight: 57.h,
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

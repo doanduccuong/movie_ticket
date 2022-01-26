@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_ticket/configs/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/available_ticket.dart';
-import 'package:movie_ticket/ui/choose_cnime_seats/widget/reserved_ticket.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/widget/available_ticket.dart';
+import 'package:movie_ticket/ui/choose_cinema_seats/widget/reserved_ticket.dart';
 
 class SeatRow extends StatelessWidget {
-  SeatRow({Key? key, required this.numSeat, required this.avaiableSeat})
+  SeatRow({Key? key, required this.numSeat, required this.availableSeat})
       : super(key: key);
   int numSeat;
-  List<int> avaiableSeat;
+  List<int> availableSeat;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,7 +16,7 @@ class SeatRow extends StatelessWidget {
         numSeat,
         (index) => Row(
           children: [
-            avaiableSeat.contains(index + 1)
+            availableSeat.contains(index + 1)
                 ? ReservedTicket()
                 : InkWell(
               splashColor: Colors.transparent,

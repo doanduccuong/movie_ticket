@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_ticket/configs/colors.dart';
-import 'package:movie_ticket/cubit/app_cubit.dart';
-import 'package:movie_ticket/cubit/app_cubit_states.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
 import 'package:movie_ticket/ui/main_screen/all_movies_tab/all_movies_tab.dart';
 import 'for_kid_tab/forkid_tab.dart';
@@ -41,7 +38,7 @@ class _MainScreenState extends State<MainScreen>
             Tab(
               child: TextNormal(
                 colors: tabbarController.index == 0
-                    ? AppColors.selectedboxColor
+                    ? AppColors.selectedBoxColor
                     : AppColors.textColor,
                 title: 'Allmovies',
                 size: 15.sp,
@@ -51,7 +48,7 @@ class _MainScreenState extends State<MainScreen>
             Tab(
               child: TextNormal(
                 colors: tabbarController.index == 1
-                    ? AppColors.selectedboxColor
+                    ? AppColors.selectedBoxColor
                     : AppColors.textColor,
                 title: 'For Kids',
                 size: 15.sp,
@@ -61,7 +58,7 @@ class _MainScreenState extends State<MainScreen>
             Tab(
               child: TextNormal(
                 colors: tabbarController.index == 2
-                    ? AppColors.selectedboxColor
+                    ? AppColors.selectedBoxColor
                     : AppColors.textColor,
                 title: 'Your Tickets',
                 size: 15.sp,
@@ -74,7 +71,7 @@ class _MainScreenState extends State<MainScreen>
       backgroundColor: AppColors.backgroundColor,
       body: TabBarView(
         controller: tabbarController,
-        children: [
+        children: const [
           AllMoviesTab(),
           ForKidTab(),
           MyTicketTab(),

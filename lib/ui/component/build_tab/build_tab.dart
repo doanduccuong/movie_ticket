@@ -4,7 +4,7 @@ import 'package:movie_ticket/ui/component/text/text_normal.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildTab extends StatelessWidget {
-  BuildTab({required this.title});
+  BuildTab({Key? key, required this.title}) : super(key: key);
   String title;
 
   @override
@@ -22,7 +22,7 @@ class BuildTab extends StatelessWidget {
       ),
       height: 22.h,
       decoration: BoxDecoration(
-        color: AppColors.selectedboxColor,
+        color: AppColors.selectedBoxColor,
         borderRadius: BorderRadius.circular(5.r),
       ),
     );

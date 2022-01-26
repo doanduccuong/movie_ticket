@@ -11,35 +11,35 @@ class ReUseBox extends StatelessWidget {
       this.isImage = false,
       required this.title,
       this.backgroundColor,
-      this.containerHeigh,
+      this.containerHeight,
       this.textSize,
       this.isFlexible = true,
       this.containerWidth,
       this.borderRadius = 10,
-      this.textHeigh,
+      this.textHeight,
       this.image})
       : super(key: key);
   String title;
   Color? backgroundColor;
-  double? containerHeigh;
+  double? containerHeight;
   double? containerWidth;
   double? textSize;
   bool? isFlexible;
   String? image;
   bool isImage;
   double borderRadius;
-  double? textHeigh;
+  double? textHeight;
   @override
   Widget build(BuildContext context) {
     return isFlexible == true
         ? Flexible(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 4.w),
-              height: containerHeigh ?? 22.h,
+              height: containerHeight ?? 22.h,
               child: TextNormal(
                 title: title,
                 size: textSize ?? 13.sp,
-                height: textHeigh ?? 1.5.h,
+                height: textHeight ?? 1.5.h,
               ),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.r),
@@ -48,7 +48,7 @@ class ReUseBox extends StatelessWidget {
           )
         : Container(
             alignment: Alignment.center,
-            height: containerHeigh ?? 57.h,
+            height: containerHeight ?? 57.h,
             width: containerWidth ?? 169.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -62,12 +62,12 @@ class ReUseBox extends StatelessWidget {
                 TextBold(
                   title: title,
                   size: textSize ?? 15.sp,
-                  height: textHeigh ?? 1.5.h,
+                  height: textHeight ?? 1.5.h,
                 ),
               ],
             ),
             decoration: BoxDecoration(
-              color: AppColors.selectedboxColor,
+              color: AppColors.selectedBoxColor,
               borderRadius: BorderRadius.circular(borderRadius),
             ),
           );

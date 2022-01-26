@@ -44,7 +44,7 @@ class ReUseCard extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.airline_seat_recline_extra,color: AppColors.textColor,size: 20.sp,),
-                    TextNormal(title: '${cinemasNumber} Cinemas',size: 10.sp,height: 1.5.h,fontWeight: FontWeight.w400,)
+                    TextNormal(title: '$cinemasNumber Cinemas',size: 10.sp,height: 1.5.h,fontWeight: FontWeight.w400,)
                   ],
                 )
               ],
@@ -56,7 +56,7 @@ class ReUseCard extends StatelessWidget {
               children: [
                 Icon(Icons.star,color: AppColors.starColor,size: 15.sp,),
                 SizedBox(width: 7.18.w,),
-                TextNormal(title: '${startNumber}',size: 10.sp,height: 1.5.h,)
+                TextNormal(title: '$startNumber',size: 10.sp,height: 1.5.h,)
               ],
             ),
           )
@@ -66,7 +66,7 @@ class ReUseCard extends StatelessWidget {
       width: 330.w,
       height: 113.h,
       decoration: BoxDecoration(
-          color: AppColors.cardbackgroundColor,
+          color: AppColors.cardBackGroundColor,
           borderRadius: BorderRadius.circular(10.r)
       ),
     );

@@ -30,7 +30,7 @@ class SelectBranch extends StatelessWidget {
                   width: 9.w,
                 ),
                 TextNormal(
-                  title: 'Seclect Branch',
+                  title: 'Select Branch',
                   size: 15.sp,
                   height: 1.5.h,
                 )
