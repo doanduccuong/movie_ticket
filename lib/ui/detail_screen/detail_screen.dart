@@ -9,6 +9,7 @@ import 'package:movie_ticket/ui/component/reuse_box/reuse_box.dart';
 import 'package:movie_ticket/ui/component/text/text_bold.dart';
 import 'package:movie_ticket/ui/component/text/text_normal.dart';
 import 'package:movie_ticket/ui/detail_screen/widget/expandable_text.dart';
+
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
@@ -30,24 +31,31 @@ class DetailScreen extends StatelessWidget {
                         height: 20.h,
                       ),
                       InkWell(
-                          onTap: () {
-                            BlocProvider.of<AppCubit>(context).goMainScreen();
-                          },
-                          child: const Align(
-                            alignment: Alignment.topLeft,
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: AppColors.textColor,
-                            ),
-                          )),
+                        onTap: () {
+                          BlocProvider.of<AppCubit>(context).goMainScreen();
+                        },
+                        child: const Align(
+                          alignment: Alignment.topLeft,
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: AppColors.textColor,
+                          ),
+                        ),
+                      ),
                       SizedBox(height: 300.h),
-                      ReUseBox(
-                        isFlexible: false,
-                        title: 'Get Tickets',
-                        isImage: true,
-                        image: AppImages.imgTicket,
-                        containerWidth: 169.w,
-                        containerHeight: 57.h,
+                      InkWell(
+                        onTap: () {
+                          BlocProvider.of<AppCubit>(context)
+                              .goChoseSeatScreen();
+                        },
+                        child: ReUseBox(
+                          isFlexible: false,
+                          title: 'Get Tickets',
+                          isImage: true,
+                          image: AppImages.imgTicket,
+                          containerWidth: 169.w,
+                          containerHeight: 57.h,
+                        ),
                       ),
                       SizedBox(
                         height: 52.h,

@@ -33,3 +33,8 @@ class DetailState extends CubitStates {
   // TODO: implement props
   List<Object?> get props => [detailData];
 }
+class ChooseCinemaState extends CubitStates {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}

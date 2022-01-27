@@ -27,7 +27,13 @@ class AppCubit extends Cubit<CubitStates> {
       print(e);
     }
   }
-  goMainScreen(){
+
+  goMainScreen() {
     emit(LoadedState(httpData: httpData));
   }
+
+  goChoseSeatScreen() {
+    emit(ChooseCinemaState());
+  }
+
 }

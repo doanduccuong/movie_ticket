@@ -76,59 +76,60 @@ class ChooseCinema extends StatelessWidget {
             height: 61.h,
             width: double.infinity,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(right: 11.w),
-                    padding: EdgeInsets.only(
-                      top: 7.h,
-                      left: 10.w,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextNormal(
-                          title: '2:30PM- 4:25PM',
-                          size: 10.sp,
-                          fontWeight: FontWeight.w600,
-                          height: 1.5.h,
-                        ),
-                        TextNormal(
-                          title: 'Cinema: 1D',
-                          size: 10.sp,
-                          fontWeight: FontWeight.w600,
-                          height: 1.5.h,
-                        ),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.chair,
-                              color: AppColors.textColor,
-                              size: 12.sp,
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            TextNormal(
-                              title: '25 seats available',
-                              size: 7.sp,
-                              height: 1.3.h,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    width: 109.w,
-                    height: 61.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.iPrimaryColor,
-                        borderRadius: BorderRadius.circular(10.r)),
-                  );
-                }),
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(right: 11.w),
+                  padding: EdgeInsets.only(
+                    top: 7.h,
+                    left: 10.w,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextNormal(
+                        title: '2:30PM- 4:25PM',
+                        size: 10.sp,
+                        fontWeight: FontWeight.w600,
+                        height: 1.5.h,
+                      ),
+                      TextNormal(
+                        title: 'Cinema: 1D',
+                        size: 10.sp,
+                        fontWeight: FontWeight.w600,
+                        height: 1.5.h,
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.chair,
+                            color: AppColors.textColor,
+                            size: 12.sp,
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          TextNormal(
+                            title: '25 seats available',
+                            size: 7.sp,
+                            height: 1.3.h,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  width: 109.w,
+                  height: 61.h,
+                  decoration: BoxDecoration(
+                      color: AppColors.iPrimaryColor,
+                      borderRadius: BorderRadius.circular(10.r)),
+                );
+              },
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: 11.h, left: 30.w, right: 315.w),
@@ -148,6 +149,7 @@ class ChooseCinema extends StatelessWidget {
           SizedBox(
             height: 19.h,
           ),
+          //Build seat
           seatColumn(),
           Container(
             margin: EdgeInsets.only(top: 27.5.h, left: 42.5.w),
